@@ -7,9 +7,8 @@ package catgram.model;
 public class Photo {
 
     private long id;
-    private long userId;
+    private long authorId;
     private long postId;
-    private String fileName;
     private String filePath;
     // TODO METADATA
 }

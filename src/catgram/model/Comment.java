@@ -1,5 +1,7 @@
 package catgram.model;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author Ana
@@ -7,9 +9,10 @@ package catgram.model;
 public class Comment {
 
     private long id;
-    private long userId;
+    private long authorId;
     private long postId;
     private int likes;
     private String comment;
-
+    private LocalDateTime createdAt;
+    
 }
