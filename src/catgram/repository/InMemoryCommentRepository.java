@@ -41,7 +41,7 @@ public class InMemoryCommentRepository implements CommentRepository {
     }
 
     @Override
-    public List<Comment> findAllByPost(long postId) {
+    public List<Comment> findAllByPostId(long postId) {
         return db.values()
                 .stream()
                 .filter(c -> c.getPostId() == postId)

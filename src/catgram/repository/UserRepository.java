@@ -14,6 +14,8 @@ public interface UserRepository {
 
     Optional<User> findById(long id);
 
+    Optional<User> findByCredentials(String username, char[] password);
+
     List<User> findAll();
 
     void delete(long id);

@@ -9,12 +9,12 @@ import java.time.LocalDateTime;
 public class User {
 
     private String name;
-    private String password;
+    private char[] password;
 
     private long id = 0;
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    public User(String name, String password) {
+    public User(String name, char[] password) {
         this.name = name;
         this.password = password;
     }
@@ -27,7 +27,7 @@ public class User {
         return name;
     }
 
-    public String getPassword() {
+    public char[] getPassword() {
         return password;
     }
 
@@ -43,7 +43,7 @@ public class User {
         this.name = name;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(char[] password) {
         this.password = password;
     }
 

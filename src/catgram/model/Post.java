@@ -24,6 +24,10 @@ public class Post {
         this.photos = photos;
     }
 
+    public void like() {
+        likes++;
+    }
+
     public long getId() {
         return id;
     }

@@ -16,7 +16,7 @@ public interface CommentRepository {
 
     List<Comment> findAllByUser(long userId);
 
-    List<Comment> findAllByPost(long postId);
-
     void delete(long id);
+
+    public List<Comment> findAllByPostId(long postId);
 }

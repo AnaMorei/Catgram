@@ -1,5 +1,7 @@
 package catgram.model;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author Ana
@@ -10,10 +12,10 @@ public class Photo {
     private long authorId;
     private long postId;
     private String filePath;
+    private LocalDateTime uploadedAt = LocalDateTime.now();
 
-    public Photo(long authorId, long postId, String filePath) {
+    public Photo(long authorId, String filePath) {
         this.authorId = authorId;
-        this.postId = postId;
         this.filePath = filePath;
     }
 

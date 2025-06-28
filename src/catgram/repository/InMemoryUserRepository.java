@@ -2,6 +2,7 @@ package catgram.repository;
 
 import catgram.model.User;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,6 +26,14 @@ public class InMemoryUserRepository implements UserRepository {
 
         db.put(user.getId(), user);
         return user;
+    }
+
+    @Override
+    public Optional<User> findByCredentials(String username, char[] password) {
+        return db.values().stream()
+                .filter(user -> user.getName().equals(username)
+                && Arrays.equals(user.getPassword(), password))
+                .findFirst();
     }
 
     @Override
