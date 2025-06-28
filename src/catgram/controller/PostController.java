@@ -1,6 +1,5 @@
 package catgram.controller;
 
-import catgram.model.Photo;
 import catgram.model.Post;
 import catgram.service.PostService;
 import java.io.File;
