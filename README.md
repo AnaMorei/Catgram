@@ -1,6 +1,9 @@
-# 😸 Catgram - Etapa 6
+# 😸 Catgram
 
-Este repositório contém a **Etapa 6** do Projeto Integrador: um sistema monolítico em Java que modela as regras de negócio do Catgram (plataforma para postar fotos de gatos), com código separado da interface.
+> **Fase concluída:** Etapa 6 \
+> **Fase atual:** Etapa 7 – testes automatizados
+
+Este repositório contém o sistema monolítico em Java para o Catgram (plataforma para postar fotos de gatos).
 
 ---
 
@@ -8,7 +11,7 @@ Este repositório contém a **Etapa 6** do Projeto Integrador: um sistema monol�
 
 * Java 11+
 * NetBeans IDE
-* JUnit (para testes)
+* JUnit 4
 * MySQL (planejado para etapas futuras)
 
 ---
@@ -43,10 +46,38 @@ src/
 
 ---
 
-## Testes
+## Testes Automatizados (Etapa 7)
 
-* O método `App.main()` executa um fluxo de testes manuais cobrindo as principais funcionalidades.
-* Para testes unitários automatizados com JUnit, a estrutura já está preparada.
+### Já implementados
+
+* **ServiceLayerTest** (JUnit 4)
+
+  * UserService: criação, validação de nome/senha e autenticação
+  * PostService: criação de post com fotos, curtidas e exclusão autorizada
+  * CommentService: adição, listagem e exclusão de comentários
+* **LocalImageStorageTest** (JUnit 4)
+
+  * save(): grava arquivo e retorna caminho válido
+  * delete(): remove arquivo existente e não falha em arquivos ausentes
+
+### Foco para futuros testes
+
+1. **Repository Layer**
+
+   * InMemoryUserRepository: atribuição de IDs, busca por credenciais e duplicatas
+   * InMemoryPostRepository: findById, findAll, delete e métodos de fotos (se houver)
+   * InMemoryCommentRepository: findAllByPostId e ordenação
+
+2. **Edge Cases em Serviços**
+
+   * Criar post com múltiplas fotos (verificar todas registradas)
+   * Deleção em cascata: após deletePost(), findAll de fotos e comentários deve retornar vazio
+   * Comentários muito longos (validação de tamanho)
+
+3. **Concorrência e Idempotência (opcional)**
+
+   * Simular likes concorrentes e validar contador final
+   * Chamar deletePost duas vezes e confirmar exceção no segundo chamado
 
 ---
 
@@ -60,7 +91,7 @@ git clone https://github.com/AnaMorei/Catgram.git
 
 2. Abra no NetBeans como projeto Java Ant.
 
-3. Compile e execute a classe `catgram.App`.
+3. Compile e execute a classe `catgram.App`:
 
    * O diretório `uploads/` será criado automaticamente, se não existir.
-   * Verifique que as imagens de teste estejam salvas dentro de `uploads/`.
+   * Certifique‑se de que as imagens de teste estejam na pasta `uploads/`.
