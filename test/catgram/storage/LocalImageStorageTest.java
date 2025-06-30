@@ -27,7 +27,7 @@ public class LocalImageStorageTest {
     }
 
     @Test
-    public void save_createsFileAndReturnsPath() throws IOException {
+    public void saveCreatesFileAndReturnPath() throws IOException {
         File dummy = tempDir.newFile("pic.png");
         try (FileWriter w = new FileWriter(dummy)) {
             w.write("fake-image-bytes");
@@ -42,7 +42,7 @@ public class LocalImageStorageTest {
     }
 
     @Test
-    public void delete_existingFile_removesIt() throws IOException {
+    public void deleteExistingFile() throws IOException {
         File dummy = tempDir.newFile("pic2.png");
         try (FileWriter w = new FileWriter(dummy)) {
             w.write("content");
@@ -57,7 +57,7 @@ public class LocalImageStorageTest {
     }
 
     @Test
-    public void delete_nonexistentFile_doesNotThrow() {
+    public void deleteNonExistentFileDoesNotThrow() {
         String fakeKey = tempDir.getRoot().toPath().resolve("no-such-file.png").toString();
 
         try {

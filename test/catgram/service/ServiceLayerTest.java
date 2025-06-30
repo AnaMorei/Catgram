@@ -120,7 +120,7 @@ public class ServiceLayerTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void addComment_toNonexistentPost_throws() {
+    public void addCommentNomExistentPost() {
         commentService.addComment(999999L, 99999L, "testing123");
     }
 }
