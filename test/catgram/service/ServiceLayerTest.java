@@ -95,7 +95,7 @@ public class ServiceLayerTest {
     }
 
     @Test(expected = SecurityException.class)
-    public void deletePostByNomAythor() throws Exception {
+    public void deletePostByNomAuthor() throws Exception {
         User user1 = userService.createUser("e1", "x".toCharArray());
         User user2 = userService.createUser("e2", "x".toCharArray());
         File dummy = Path.of("uploads", "gato1.jpg").toFile();
